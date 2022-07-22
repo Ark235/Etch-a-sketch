@@ -40,7 +40,9 @@
 }
 
 .drawing-field {
+    display: flex;
+    flex-wrap: wrap;
     width: 322px;
     height: 322px;
-    border: 1px solid rgb(104, 226, 100);
+    border: 1px solid rgba(8, 7, 7, 0.2);
 }
