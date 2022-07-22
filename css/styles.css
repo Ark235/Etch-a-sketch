@@ -1,0 +1,46 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.wrapper {
+    margin: auto;
+    width: 700px;
+    height: 700px;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.logo {
+    padding: 20px 0 20px 0;
+}
+
+.content {
+    width: 600px;
+    height: 600px;
+    border: 1px solid rgb(233, 152, 152);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.buttons button {
+    flex: 1 0 90px;
+}
+
+.drawing-field {
+    width: 322px;
+    height: 322px;
+    border: 1px solid rgb(104, 226, 100);
+}
