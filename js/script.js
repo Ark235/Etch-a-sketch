@@ -3,6 +3,7 @@ addSquares16();
 //** Control buttons */
 
 const clearBtn = document.querySelector('.clear');
+const gridBtn = document.querySelector('.toggle-grid');
 const multicolorBtn = document.querySelector('.multicolor');
 const monochromeBtn = document.querySelector('.monochrome');
 
@@ -11,7 +12,8 @@ const monochromeBtn = document.querySelector('.monochrome');
 function createSingleSquare() {
     const container = document.querySelector('.drawing-field');
     const singleSquare = document.createElement('div');
-    singleSquare.setAttribute('style', 'width: 20px; height: 20px; box-sizing: border-box; border: 1px solid rgba(8, 7, 7, 0.2);');
+    singleSquare.setAttribute('style', 'width: 20px; height: 20px; box-sizing: border-box;');
+    singleSquare.setAttribute('class', 'drawing-field-element, grid-on');
     container.appendChild(singleSquare);
 }
 
@@ -22,3 +24,5 @@ function addSquares16() {
         createSingleSquare();
     }
 }
+
+//**  */
