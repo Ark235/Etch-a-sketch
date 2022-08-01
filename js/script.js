@@ -2,6 +2,13 @@ let fieldSize = document.querySelector('.field-size-value').value;
 
 addSquares();
 
+//** Drawing mode variables */
+
+const monochromeMode = 1;
+const multicolorMode = 2;
+
+let currentMode;
+
 //** Control buttons */
 
 const clearBtn = document.querySelector('.clear');
@@ -31,7 +38,6 @@ fieldSizeSetBtn.addEventListener('click', () => {
         alert('Max grid size is 64*64');
     } else 
     addSquares();
-
 });
 
 //** Add single square to drawing field */
@@ -86,7 +92,6 @@ function squareSize() {
     let field = document.querySelector('.drawing-field');
     let fieldWidth = field.offsetWidth;
     let newSquareSize = (fieldWidth - 2) / squareSize;
-    console.log(newSquareSize);
     return newSquareSize;
 }
 
