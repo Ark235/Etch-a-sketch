@@ -50,3 +50,7 @@
 .grid-on {
     border: 1px solid rgba(8, 7, 7, 0.2);
 }
+
+.color-square {
+    background-color: black;
+}

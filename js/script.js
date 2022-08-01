@@ -13,12 +13,19 @@ gridBtn.addEventListener('click', () => {
     toggleBorders();
 });
 
+//** Clear field button */
+
+clearBtn.addEventListener('click', () => {
+    clearField();
+});
+
 //** Add single square 20px*20px to drawing field */
 
 function createSingleSquare() {
     const container = document.querySelector('.drawing-field');
     const singleSquare = document.createElement('div');
     singleSquare.setAttribute('style', 'width: 20px; height: 20px; box-sizing: border-box;');
+    mouseoverEvent(singleSquare);
     singleSquare.setAttribute('class', 'drawing-field-element grid-on');
     container.appendChild(singleSquare);
 }
@@ -37,5 +44,22 @@ function toggleBorders() {
     const squares = document.querySelectorAll('.drawing-field-element');
     squares.forEach(element => {
         element.classList.toggle('grid-on');
+    });
+}
+
+//** Clear field (color all squares white) */
+
+function clearField() {
+    const squares = document.querySelectorAll('.drawing-field-element');
+    squares.forEach(element => {
+        element.classList.remove('color-square');
+    });
+}
+
+//** Add mouseover event listener to an element (square), which add a style with new color to this element */
+
+function mouseoverEvent(element) {
+    element.addEventListener('mouseover', () => {
+        element.classList.add('color-square');
     });
 }
