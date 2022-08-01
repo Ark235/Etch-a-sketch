@@ -42,8 +42,8 @@
 .drawing-field {
     display: flex;
     flex-wrap: wrap;
-    width: 322px;
-    height: 322px;
+    width: 422px;
+    height: 422px;
     border: 1px solid rgba(8, 7, 7, 0.2);
 }
 
