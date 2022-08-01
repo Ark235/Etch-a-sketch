@@ -56,10 +56,20 @@ function clearField() {
     });
 }
 
-//** Add mouseover event listener to an element (square), which add a style with new color to this element */
+//** Add event listener to an element (square), which add a class with new color to this element */
 
 function mouseoverEvent(element) {
-    element.addEventListener('mouseover', () => {
+    element.addEventListener('mouseover', (e) => {
         element.classList.add('color-square');
     });
+}
+
+//** Calculate square size using 'field size' input data */
+
+function squareSize() {
+    let squareSize = document.querySelector('.field-size-value').getAttribute('value');    
+    let field = document.querySelector('.drawing-field');
+    let fieldWidth = field.offsetWidth;
+    let newSquareSize = (fieldWidth - 2) / squareSize;
+    return newSquareSize;
 }
