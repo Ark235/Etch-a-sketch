@@ -7,7 +7,7 @@ addSquares();
 const monochromeMode = 1;
 const multicolorMode = 2;
 
-let currentMode;
+let currentMode = 1;
 
 //** Control buttons */
 
@@ -16,6 +16,20 @@ const gridBtn = document.querySelector('.toggle-grid');
 const multicolorBtn = document.querySelector('.multicolor');
 const monochromeBtn = document.querySelector('.monochrome');
 const fieldSizeSetBtn = document.querySelector('.field-size-set');
+
+//** Multicolor button */
+
+multicolorBtn.addEventListener('click', () => {
+    clearField();
+    currentMode = 2;
+});
+
+//** Monochrome button */
+
+monochromeBtn.addEventListener('click', () => {
+    clearField();
+    currentMode = 1;
+});
 
 //** Grid toggle button */
 
@@ -33,11 +47,11 @@ clearBtn.addEventListener('click', () => {
 
 fieldSizeSetBtn.addEventListener('click', () => {
     removeSquares();
-    fieldSize = document.querySelector('.field-size-value').value;    
+    fieldSize = document.querySelector('.field-size-value').value;
     if (fieldSize > 64) {
         alert('Max grid size is 64*64');
-    } else 
-    addSquares();
+    } else
+        addSquares();
 });
 
 //** Add single square to drawing field */
@@ -73,7 +87,8 @@ function toggleBorders() {
 function clearField() {
     const squares = document.querySelectorAll('.drawing-field-element');
     squares.forEach(element => {
-        element.classList.remove('color-square');
+        element.classList.remove('color-square-mono');
+        element.classList.remove('color-square-multi');
     });
 }
 
@@ -81,9 +96,13 @@ function clearField() {
 
 function mouseoverEvent(element) {
     element.addEventListener('mouseover', (e) => {
-        element.classList.add('color-square');
+        if (currentMode == 1) {
+            element.classList.add('color-square-mono');
+        } else if (currentMode == 2) {
+            element.classList.add('color-square-multi');
+        }
     });
-}
+    }
 
 //** Calculate square size using 'field size' and container width input data */
 
@@ -102,4 +121,15 @@ function removeSquares() {
         let elementToRemove = document.querySelector('.drawing-field-element');
         elementToRemove.remove();
     }
+}
+
+//** Generate random color HEX-value */
+
+function randomColor() {
+    const randomBetween = (min, max) => min + Math.floor(Math.random() * (max - min + 1));
+    const r = randomBetween(0, 255);
+    const g = randomBetween(0, 255);
+    const b = randomBetween(0, 255);
+    const rgb = `rgb(${r},${g},${b})`;
+    return rgb;
 }
