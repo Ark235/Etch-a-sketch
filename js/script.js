@@ -87,8 +87,9 @@ function toggleBorders() {
 function clearField() {
     const squares = document.querySelectorAll('.drawing-field-element');
     squares.forEach(element => {
+        element.setAttribute('style', `width: ${squareSize()}px; height: ${squareSize()}px; box-sizing: border-box;`);
         element.classList.remove('color-square-mono');
-        element.classList.remove('color-square-multi');
+        
     });
 }
 
@@ -99,7 +100,7 @@ function mouseoverEvent(element) {
         if (currentMode == 1) {
             element.classList.add('color-square-mono');
         } else if (currentMode == 2) {
-            element.classList.add('color-square-multi');
+            element.setAttribute('style', `background-color: ${randomColor()}; width: ${squareSize()}px; height: ${squareSize()}px; box-sizing: border-box;`);
         }
     });
     }
