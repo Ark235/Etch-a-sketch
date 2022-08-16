@@ -56,10 +56,10 @@ fieldSizeSetBtn.addEventListener('click', () => {
 
 //** Add single square to drawing field */
 
-function createSingleSquare() {
+function createSingleSquare(newSquareSize) {
     const container = document.querySelector('.drawing-field');
     const singleSquare = document.createElement('div');
-    singleSquare.setAttribute('style', `width: ${squareSize()}px; height: ${squareSize()}px;`);
+    singleSquare.setAttribute('style', `width: ${newSquareSize}px; height: ${newSquareSize}px;`);
     mouseoverEvent(singleSquare);
     singleSquare.setAttribute('class', 'drawing-field-element grid-on');
     container.appendChild(singleSquare);
@@ -68,8 +68,9 @@ function createSingleSquare() {
 //** Fill drawing field with squares  */
 
 function addSquares() {
+    let newSquareSize = squareSize();
     for (let i = 0; i < fieldSize * fieldSize; i++) {
-        createSingleSquare();
+        createSingleSquare(newSquareSize);
     }
 }
 
