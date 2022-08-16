@@ -17,17 +17,15 @@ const multicolorBtn = document.querySelector('.multicolor');
 const monochromeBtn = document.querySelector('.monochrome');
 const fieldSizeSetBtn = document.querySelector('.field-size-set');
 
-//** Multicolor button */
+//** Multicolor button action */
 
 multicolorBtn.addEventListener('click', () => {
-    clearField();
     currentMode = 2;
 });
 
-//** Monochrome button */
+//** Monochrome button action */
 
 monochromeBtn.addEventListener('click', () => {
-    clearField();
     currentMode = 1;
 });
 
@@ -88,22 +86,20 @@ function clearField() {
     const squares = document.querySelectorAll('.drawing-field-element');
     squares.forEach(element => {
         element.setAttribute('style', `width: ${squareSize()}px; height: ${squareSize()}px; box-sizing: border-box;`);
-        element.classList.remove('color-square-mono');
-        
     });
 }
 
-//** Add event listener to an element (square), which add a class with new color to this element */
+//** Add event listener to an element (square), which add a class with new color to this element on mouseover */
 
 function mouseoverEvent(element) {
     element.addEventListener('mouseover', (e) => {
         if (currentMode == 1) {
-            element.classList.add('color-square-mono');
+            element.style['background-color'] = `black`;
         } else if (currentMode == 2) {
-            element.setAttribute('style', `background-color: ${randomColor()}; width: ${squareSize()}px; height: ${squareSize()}px; box-sizing: border-box;`);
+            element.style['background-color'] = `${randomColor()}`;
         }
     });
-    }
+}
 
 //** Calculate square size using 'field size' and container width input data */
 
