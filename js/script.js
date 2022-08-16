@@ -48,6 +48,8 @@ fieldSizeSetBtn.addEventListener('click', () => {
     fieldSize = document.querySelector('.field-size-value').value;
     if (fieldSize > 64) {
         alert('Max grid size is 64*64');
+        fieldSize = 64;
+        addSquares();
     } else
         addSquares();
 });
@@ -57,7 +59,7 @@ fieldSizeSetBtn.addEventListener('click', () => {
 function createSingleSquare() {
     const container = document.querySelector('.drawing-field');
     const singleSquare = document.createElement('div');
-    singleSquare.setAttribute('style', `width: ${squareSize()}px; height: ${squareSize()}px; box-sizing: border-box;`);
+    singleSquare.setAttribute('style', `width: ${squareSize()}px; height: ${squareSize()}px;`);
     mouseoverEvent(singleSquare);
     singleSquare.setAttribute('class', 'drawing-field-element grid-on');
     container.appendChild(singleSquare);
@@ -83,13 +85,11 @@ function toggleBorders() {
 //** Clear field (color all squares white) */
 
 function clearField() {
-    const squares = document.querySelectorAll('.drawing-field-element');
-    squares.forEach(element => {
-        element.setAttribute('style', `width: ${squareSize()}px; height: ${squareSize()}px; box-sizing: border-box;`);
-    });
+    removeSquares();
+    addSquares();
 }
 
-//** Add event listener to an element (square), which add a class with new color to this element on mouseover */
+//** Add event listener to an element (square), which add new color to this element on mouseover */
 
 function mouseoverEvent(element) {
     element.addEventListener('mouseover', (e) => {

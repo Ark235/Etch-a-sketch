@@ -45,16 +45,13 @@
     width: 422px;
     height: 422px;
     border: 1px solid rgba(8, 7, 7, 0.2);
+    flex-basis: 1px;
+}
+
+.drawing-field > div {
+    flex-grow: 1;
 }
 
 .grid-on {
     border: 1px solid rgba(8, 7, 7, 0.2);
-}
-
-.color-square-mono {
-    background-color: black;
-}
-
-.color-square-multi {
-    background-color: yellow;
 }
