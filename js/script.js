@@ -44,14 +44,15 @@ clearBtn.addEventListener('click', () => {
 //** Field size set button */
 
 fieldSizeSetBtn.addEventListener('click', () => {
+    let fieldSizeValueContainer = document.querySelector('.field-size-value');
+    let newFieldSize = fieldSizeValueContainer.value;
     removeSquares();
-    fieldSize = document.querySelector('.field-size-value').value;
-    if (fieldSize > 64) {
-        alert('Max grid size is 64*64');
+    if (newFieldSize < 1 || newFieldSize > 64) {
+        alert('min field size 1x1, max 64x64');
         fieldSize = 64;
-        addSquares();
-    } else
-        addSquares();
+    } else fieldSize = newFieldSize;
+
+    addSquares();
 });
 
 //** Add single square to drawing field */
@@ -68,9 +69,18 @@ function createSingleSquare(newSquareSize) {
 //** Fill drawing field with squares  */
 
 function addSquares() {
-    let newSquareSize = squareSize();
+    let newSquareSize = squareSize(fieldSize);
     for (let i = 0; i < fieldSize * fieldSize; i++) {
         createSingleSquare(newSquareSize);
+    }
+}
+
+//** Remove current field elements */
+
+function removeSquares() {
+    for (let i = 0; i < fieldSize * fieldSize; i++) {
+        let elementToRemove = document.querySelector('.drawing-field-element');
+        elementToRemove.remove();
     }
 }
 
@@ -104,21 +114,12 @@ function mouseoverEvent(element) {
 
 //** Calculate square size using 'field size' and container width input data */
 
-function squareSize() {
-    let squareSize = document.querySelector('.field-size-value').value;
+function squareSize(fieldSize) {
+    let squareSize = fieldSize;
     let field = document.querySelector('.drawing-field');
     let fieldWidth = field.offsetWidth;
     let newSquareSize = (fieldWidth - 2) / squareSize;
     return newSquareSize;
-}
-
-//** Remove current field elements */
-
-function removeSquares() {
-    for (let i = 0; i < fieldSize * fieldSize; i++) {
-        let elementToRemove = document.querySelector('.drawing-field-element');
-        elementToRemove.remove();
-    }
 }
 
 //** Generate random color HEX-value */
