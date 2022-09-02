@@ -22,6 +22,7 @@
     padding: 20px 0 20px 0;
     font-family: 'Coming Soon';
     letter-spacing: 5px;
+    text-shadow: 2px 2px rgba(0, 0, 0, 0.267);
 }
 
 .content {
