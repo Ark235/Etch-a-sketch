@@ -1,3 +1,8 @@
+@font-face {
+    font-family: 'Coming Soon';
+    src: url('../fonts/Coming_Soon/ComingSoon-Regular.ttf');
+}
+
 * {
     padding: 0;
     margin: 0;
@@ -15,6 +20,8 @@
 
 .logo {
     padding: 20px 0 20px 0;
+    font-family: 'Coming Soon';
+    letter-spacing: 5px;
 }
 
 .content {
@@ -27,17 +34,75 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 30px;
+    gap: 20px;
+}
+
+.settings {
+    display: flex;
+    justify-content: space-between;
+}
+
+.field-size input {
+    height: 29px;
+    padding-left: 2px;
+    width: 75px;
+    border-radius: 7px;
+    border: none;
+    box-shadow: 1px 1px gray;
+}
+
+input:focus {
+    outline: none;
+}
+
+.field-size button {
+    height: 30px;
+    padding: 0px 10px;
+    text-transform: uppercase;
+    font-weight: 700;
+    background-color: white;
+    box-shadow: 1px 1px gray;
+    border: none;
+    border-radius: 8px;
+    line-height: 0px;
+    font-family:'Courier New', Courier, monospace;
+    font-weight: 700;
+}
+
+.field-size button:hover {
+    background-color: aliceblue;
+}
+
+.field-size button:active {
+    box-shadow: 1px 1px gray inset;
 }
 
 .buttons {
     display: flex;
-    gap: 15px;
+    gap: 10px;
     justify-content: center;
 }
 
 .buttons button {
     flex: 1 0 90px;
+    height: 24px;
+    text-transform: uppercase;
+    padding: 0 5px;
+    background-color: white;
+    box-shadow: 1px 1px gray;
+    border: none;
+    border-radius: 8px;
+    line-height: 0px;
+    font-family:'Courier New', Courier, monospace;
+    font-weight: 700;
+}
+
+.buttons button:hover {
+    background-color: aliceblue;
+}
+
+.buttons button:active {
+    box-shadow: 1px 1px gray inset;
 }
 
 .drawing-field {
@@ -51,7 +116,7 @@
     background-color: white;
 }
 
-.drawing-field > div {
+.drawing-field>div {
     flex-grow: 1;
 }
 
